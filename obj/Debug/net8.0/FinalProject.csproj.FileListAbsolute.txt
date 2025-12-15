@@ -12,3 +12,4 @@ D:\CIT110\FinalProject\obj\Debug\net8.0\refint\FinalProject.dll
 D:\CIT110\FinalProject\obj\Debug\net8.0\FinalProject.pdb
 D:\CIT110\FinalProject\obj\Debug\net8.0\FinalProject.genruntimeconfig.cache
 D:\CIT110\FinalProject\obj\Debug\net8.0\ref\FinalProject.dll
+D:\CIT110\FinalProject\obj\Debug\net8.0\FinalProject.sourcelink.json

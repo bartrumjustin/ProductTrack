@@ -29,24 +29,22 @@ namespace FinalProject
         public string ProdType { get; set; }
         public int ProdQty { get; set; }
         public double ProdPrice { get; set; }
-        private string _Signed {  get; set; }
-        public string Signed
-        {
-            get
+        private string _Signed;
+        public string GetSigned()
+        { 
+            return _Signed;
+        }
+        public void SetSigned(string signature)
             {
-                return _Signed;
-            }
-            set
-            {
-                while (string.IsNullOrWhiteSpace(value) || value.Contains(" ") || value.Any(char.IsDigit))
+                while (string.IsNullOrWhiteSpace(signature) || signature.Contains(" ") || signature.Any(char.IsDigit))
                 {
                     Console.WriteLine("The entry is not a recognized name, try agian");
-                    value = Console.ReadLine();
+                signature = Console.ReadLine();
                 }
                 Console.WriteLine("Name now logged and will be associated with made records.");
-                _Signed = value;
+                _Signed = signature;
             }
-        }
+        
         
 
 
@@ -71,7 +69,7 @@ namespace FinalProject
             ProdType = type;
             ProdQty = quantity;
             ProdPrice = price;
-            Signed = signature;
+            _Signed = signature;
         }
 
         
@@ -85,14 +83,14 @@ namespace FinalProject
                 $"|                OnHand: {ProdQty} / {ProdType}   \n" +
                 $"| Price:{ProdPrice:C} Onhand Value:{(ProdQty*ProdPrice):C}\n" +
                 $"--------------------------------------------------\n" +
-                $"Originated by {Signed}");
+                $"Originated by {GetSigned()}");
             Console.ForegroundColor = ConsoleColor.White;
             ListId.Insert(Index,ProdId);
             ListName.Insert(Index,ProdName);
             ListType.Insert(Index,ProdType);
             ListQty.Insert(Index,ProdQty);
             ListPrice.Insert(Index,ProdPrice);
-            ListSignature.Insert(Index, Signed);
+            ListSignature.Insert(Index, GetSigned());
             Index++;
 
         }
@@ -104,7 +102,14 @@ namespace FinalProject
             bool end = false;
             string cont = "[C] to continue";
             // Console.WriteLine($"{Index}");
-            
+            if (Index == 0)
+            {
+                Console.WriteLine("There is nothing to report, please create records to view");
+            }
+            else
+            {
+
+
                 while (end == false)
                 {
 
@@ -116,7 +121,8 @@ namespace FinalProject
                             Console.WriteLine("no more left");
                             break;
                         }
-                        else { 
+                        else
+                        {
                             string message =
                                 $"--------------------------------------------------\n" +
                                 $"********************Record# {(i + 1)}*******************\n" +
@@ -130,48 +136,49 @@ namespace FinalProject
                             Console.WriteLine(message);
                         }
                     }
-                        Console.WriteLine($"You are viewing records {(i - 2)} to {page} of {Index}\n\n" +
-                        $"Make a selection by entering the [record #] in order to change\n" +
-                        $"[Q] to quit and back to Menu\n");
-                        if (i < Index)
-                        {
-                            Console.WriteLine(cont);
-                        }
-                        else
-                        {
-                            end = true;
-                        }
-                        char selection;
+                    Console.WriteLine($"You are viewing records {(i - 2)} to {page} of {Index}\n\n" +
+                    $"Make a selection by entering the [record #] in order to change\n" +
+                    $"[Q] to quit and back to Menu\n");
+                    if (i < Index)
+                    {
+                        Console.WriteLine(cont);
+                    }
+                    else
+                    {
+                        end = true;
+                    }
+                    char selection;
+                    selection = char.Parse(Console.ReadLine());
+                    if (char.IsNumber(selection))
+                    {
+                        output = selection - '0';
+                        end = true;
+                        break;
+
+                    }
+                    while (char.ToUpper(selection).Equals('C') == false && char.ToUpper(selection).Equals('Q') == false)
+                    {
+                        Console.WriteLine("your selection was not valid, Please provide a valid selection.");
+
                         selection = char.Parse(Console.ReadLine());
-                if (char.IsNumber(selection))
-                {
-                    output = selection - '0';
-                    end = true;
-                    break;
-                    
+                    }
+
+                    if (char.ToUpper(selection).Equals('Q'))
+                    {
+                        end = true;
+                        output = -1;
+                    }
+                    else
+                    {
+                        i = page;
+                        page += 3;
+                    }
+
                 }
-                        while (char.ToUpper(selection).Equals('C') == false && char.ToUpper(selection).Equals('Q') == false)
-                        { 
-                            Console.WriteLine("your selection was not valid, Please provide a valid selection.");
+                
+            }
+            return output;
 
-                            selection = char.Parse(Console.ReadLine());
-                        }
-
-                        if (char.ToUpper(selection).Equals('Q'))
-                        {
-                            end = true;
-                            output = -1;
-                        }
-                        else
-                        {
-                            i = page;
-                            page += 3;
-                        }
-                    
-                }
-                return output;
-
-            
         }
        
 

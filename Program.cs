@@ -106,7 +106,7 @@ namespace FinalProject
             while (quit == false) {
                 Console.Clear();
                 Object newObj= new Object();
-                newObj.Signed = signature; 
+                newObj.SetSigned(signature); 
                 Console.WriteLine("Enter Product ID");
                 while(!int.TryParse(Console.ReadLine(), out prodId)){
                     Console.WriteLine("Error: Enter a valid numeric Id");
@@ -180,7 +180,7 @@ namespace FinalProject
             double price = 0;
 
             int result = Object.StorePrint();
-            if (result != -1)
+            if (result > 0)
             {
                 result--;
                 Console.WriteLine("In order to access and modify a record, please provide a name");
@@ -234,9 +234,14 @@ namespace FinalProject
                     Object.ListSignature.Insert(result, signature);
                 }
             }
+            else if (result == -1)
+            {
+                Console.WriteLine("Exiting to Main Menu");
+
+            }
             else
             {
-                Console.WriteLine(Object.ListSignature);
+                Console.WriteLine("Redirected to the Main Menu");
             }
             
 
