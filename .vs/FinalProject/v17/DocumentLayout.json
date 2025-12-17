@@ -3,12 +3,21 @@
   "WorkspaceRootPath": "D:\\CIT110\\FinalProject\\",
   "Documents": [
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\CIT110\\FinalProject\\Object.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Object.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\CIT110\\FinalProject\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+=======
+      "AbsoluteMoniker": "D:0:0:{533065EC-AD01-49D6-857C-867C80926FC4}|FinalProject.csproj|d:\\cit110\\finalproject\\object.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{533065EC-AD01-49D6-857C-867C80926FC4}|FinalProject.csproj|solutionrelative:object.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{533065EC-AD01-49D6-857C-867C80926FC4}|FinalProject.csproj|d:\\cit110\\finalproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{533065EC-AD01-49D6-857C-867C80926FC4}|FinalProject.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> c44c67f6fd43bab6f64568c3f5cbeb4e19f95e93
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +27,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
+<<<<<<< HEAD
           "SelectedChildIndex": 2,
+=======
+          "SelectedChildIndex": 1,
+>>>>>>> c44c67f6fd43bab6f64568c3f5cbeb4e19f95e93
           "Children": [
             {
               "$type": "Bookmark",
@@ -32,7 +45,11 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\CIT110\\FinalProject\\Program.cs",
               "RelativeToolTip": "Program.cs",
+<<<<<<< HEAD
               "ViewState": "AgIAAFYAAAAAAAAAAAAAANgAAAAiAAAAAAAAAA==",
+=======
+              "ViewState": "AgIAAEsAAAAAAAAAAAAowFIAAAASAAAAAAAAAA==",
+>>>>>>> c44c67f6fd43bab6f64568c3f5cbeb4e19f95e93
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-08T02:31:29.845Z"
             },
@@ -44,7 +61,11 @@
               "RelativeDocumentMoniker": "Object.cs",
               "ToolTip": "D:\\CIT110\\FinalProject\\Object.cs",
               "RelativeToolTip": "Object.cs",
+<<<<<<< HEAD
               "ViewState": "AgIAAIAAAAAAAAAAAAAcwKsAAAAVAAAAAAAAAA==",
+=======
+              "ViewState": "AgIAAHIAAAAAAAAAAAAcwIQAAAAlAAAAAAAAAA==",
+>>>>>>> c44c67f6fd43bab6f64568c3f5cbeb4e19f95e93
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-08T02:31:29.679Z",
               "EditorCaption": ""

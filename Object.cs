@@ -1,4 +1,18 @@
+<<<<<<< HEAD
 ﻿using ConsoleTables;
+=======
+﻿using System;
+using System.Data.SqlTypes;
+using System.Runtime.InteropServices.Marshalling;
+
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Reflection.Metadata;
+using System.Data.Common;
+using System.Runtime;
+>>>>>>> c44c67f6fd43bab6f64568c3f5cbeb4e19f95e93
 
 
 
@@ -89,11 +103,21 @@ namespace FinalProject
         {
             int output = 0;
             int i = 0;
+<<<<<<< HEAD
 
             bool end = false;
 
 
             var table = new ConsoleTable("Record", "ID", "Name", "Quantity", "U/M", "Price", "Total", "Last Authored");
+=======
+            int page = 3;
+            int pageStart = 1;
+            bool end = false;
+            string cont = "[C] to continue";
+            string message = string.Empty;
+            string view = string.Empty;
+            
+>>>>>>> c44c67f6fd43bab6f64568c3f5cbeb4e19f95e93
             // Console.WriteLine($"{Index}");
 
             if (Index == 0)
@@ -102,6 +126,7 @@ namespace FinalProject
             }
             else
             {
+<<<<<<< HEAD
                 for (i = 0; i < Index; i++)
                 {
                     table.AddRow((i + 1), ListId[i], ListName[i], ListQty[i], ListType[i], ListPrice[i], $"{((ListQty[i]) * (ListPrice[i])):C}", ListSignature[i]);
@@ -129,6 +154,106 @@ namespace FinalProject
                 }
 
 
+=======
+                view = "compact viewing";
+                if (Index == 1)
+                {
+                    string format = new string('*', 12);
+                    string rec = "Record";
+                    string num = "Number";
+                    string nam = "Name";
+                    string qty = "Quantity";
+                    string ty = "Unit of Measure";
+                    string pri = "Price";
+                    string val = "Total Value";
+                    Console.WriteLine(view);
+                    string fullRow = new string('-', Console.WindowWidth);
+                    
+                        Console.WriteLine(fullRow);
+                    Console.Write(rec);
+                    Console.Write(format);
+                    Console.Write(num + " | "+ nam + format + qty + "/"+ ty + format + pri + format + val + format);
+                    Console.WriteLine(fullRow);
+                    Console.Write((i+1) + format + ListId[i] + " | " + ListName[i] + format + ListQty[i] + "/" + ListType[i] + format + $"{ListPrice[i]:C}" + format +$"{ ((ListQty[i]) * (ListPrice[i])):C}"
+                    + format);
+
+
+
+
+                }
+                else
+                {
+                   
+                }
+
+                while (end == false)
+                    {
+
+                        for (i = i; i < page; i++)
+                        {
+                            if (i == Index)
+                            {
+                                page = Index;
+                                Console.WriteLine("no more left");
+                                break;
+                            }
+                            else
+                            {
+                            message = $"--------------------------------------------------\n" +
+                              $"********************Record# {(i + 1)}*******************\n" +
+                               "--------------------------------------------------\n" +
+                              $"|Number: {ListId[i]}   Name: {ListName[i]}     \n" +
+                              $"|     OnHand: {ListQty[i]} / {ListType[i]}   \n" +
+                              $"|Price:{(ListPrice[i]):C} Onhand Value:{((ListQty[i]) * (ListPrice[i])):C}\n" +
+                              $"--------------------------------------------------\n" +
+                              $"Originated by {ListSignature[i]}";
+
+
+                            Console.WriteLine(message);
+                            }
+                        }
+                        Console.WriteLine($"You are viewing records {(pageStart)} to {page} of {Index}\n\n" +
+                        $"Make a selection by entering the [record #] in order to change\n" +
+                        $"[Q] to quit and back to Menu\n");
+                        if (i < Index)
+                        {
+                            Console.WriteLine(cont);
+                        }
+                        else
+                        {
+                            end = true;
+                        }
+                        char selection;
+                        selection = char.Parse(Console.ReadLine());
+                        if (char.IsNumber(selection))
+                        {
+                            output = selection - '0';
+                            end = true;
+                            break;
+
+                        }
+                        while (char.ToUpper(selection).Equals('C') == false && char.ToUpper(selection).Equals('Q') == false)
+                        {
+                            Console.WriteLine("your selection was not valid, Please provide a valid selection.");
+
+                            selection = char.Parse(Console.ReadLine());
+                        }
+
+                        if (char.ToUpper(selection).Equals('Q'))
+                        {
+                            end = true;
+                            output = -1;
+                        }
+                        else
+                        {
+                            i = page;
+                            pageStart = page;
+                            page += 3;
+                        }
+
+                    }
+                
+>>>>>>> c44c67f6fd43bab6f64568c3f5cbeb4e19f95e93
             }
             return output;
 

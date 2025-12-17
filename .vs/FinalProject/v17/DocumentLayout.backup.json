@@ -18,7 +18,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
+<<<<<<< HEAD
           "SelectedChildIndex": 2,
+=======
+          "SelectedChildIndex": 1,
+>>>>>>> c44c67f6fd43bab6f64568c3f5cbeb4e19f95e93
           "Children": [
             {
               "$type": "Bookmark",
@@ -32,7 +36,11 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\CIT110\\FinalProject\\Program.cs",
               "RelativeToolTip": "Program.cs",
+<<<<<<< HEAD
               "ViewState": "AgIAAFYAAAAAAAAAAAAAANgAAAAiAAAAAAAAAA==",
+=======
+              "ViewState": "AgIAAEsAAAAAAAAAAAAowFIAAAASAAAAAAAAAA==",
+>>>>>>> c44c67f6fd43bab6f64568c3f5cbeb4e19f95e93
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-08T02:31:29.845Z",
               "EditorCaption": ""
@@ -43,9 +51,15 @@
               "Title": "Object.cs",
               "DocumentMoniker": "D:\\CIT110\\FinalProject\\Object.cs",
               "RelativeDocumentMoniker": "Object.cs",
+<<<<<<< HEAD
               "ToolTip": "D:\\CIT110\\FinalProject\\Object.cs",
               "RelativeToolTip": "Object.cs",
               "ViewState": "AgIAAIAAAAAAAAAAAAAcwKsAAAAVAAAAAAAAAA==",
+=======
+              "ToolTip": "D:\\CIT110\\FinalProject\\Object.cs*",
+              "RelativeToolTip": "Object.cs*",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAcwHYAAAA2AAAAAAAAAA==",
+>>>>>>> c44c67f6fd43bab6f64568c3f5cbeb4e19f95e93
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-08T02:31:29.679Z",
               "EditorCaption": ""
