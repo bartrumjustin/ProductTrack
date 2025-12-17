@@ -1,31 +1,22 @@
-﻿
-using System;
-using System.Diagnostics;
-using System.Xml.Linq;
-
-using System.Data.Common;
-using System.Transactions;
-using System.Runtime.InteropServices;
-
-namespace FinalProject
+﻿namespace FinalProject
 {
     internal class Program
     {
-        
+
 
         static void Main(string[] args)
         {
-            
+
             char charKey = 'a';
 
             Console.WriteLine("Welcome to my Final Project!\n" +
                 "This console application is meant to act as a simplified version of a Product Inventory/tracking system\n" +
-               
+
                 "How To Select: As you navigate will find letters wrapped in []\n" +
-                "these are the trigger letters used to initiate an action\n"+
+                "these are the trigger letters used to initiate an action\n" +
                 "[press any key] to continue");
             Console.ReadKey();
-            
+
             while (charKey != 'Q')
             {
                 Console.WriteLine("Welcome to the Inventory System\n" +
@@ -33,10 +24,10 @@ namespace FinalProject
                               "Please Enter Your Selection...  \n\n" +
                               "[C]reate Product              \n\n" +
                               "[V]iew List             \n\n" +
-                              
+
                               "[Q] to quit program                      \n\n" +
                               "-----------------------------------------\n\n");
-                
+
                 string stringKey = Console.ReadLine().ToUpper();
                 while (!char.TryParse(stringKey, out charKey) || string.IsNullOrWhiteSpace(stringKey) == true)
                 {
@@ -59,25 +50,25 @@ namespace FinalProject
                         Console.Clear();
                         Console.WriteLine("GoodBye");
                         break;
-                    
+
                 }
             }
 
-            
-            
+
+
         }
         public static void Create()
         {
             int prodId = 0;
             string name = string.Empty;
-            
+
             string type = string.Empty;
             int quantity = 0;
             double price = 0;
 
             string signature = string.Empty;
             bool quit = false;
-            
+
             Console.WriteLine("You have entered into Creation Mode...\n\n" +
                               "**************************************\n" +
                               "Enter your first name\n" +
@@ -88,7 +79,7 @@ namespace FinalProject
             {
                 test = signature[0];
             }
-            catch(IndexOutOfRangeException ex)
+            catch (IndexOutOfRangeException ex)
             {
                 Console.WriteLine("Nothing was entered, Exiting Creation Mode\n" +
                     $"details: {ex.Message}\n\n" +
@@ -98,17 +89,20 @@ namespace FinalProject
                 Console.ReadKey();
                 Console.Clear();
             }
-            if (char.ToUpper(test).Equals('Q') == true) {
+            if (char.ToUpper(test).Equals('Q') == true)
+            {
                 quit = true;
                 Console.Clear();
             }
             //validate signature is a name :Done
-            while (quit == false) {
+            while (quit == false)
+            {
                 Console.Clear();
-                Object newObj= new Object();
-                newObj.SetSigned(signature); 
+                Object newObj = new Object();
+                newObj.SetSigned(signature);
                 Console.WriteLine("Enter Product ID");
-                while(!int.TryParse(Console.ReadLine(), out prodId)){
+                while (!int.TryParse(Console.ReadLine(), out prodId))
+                {
                     Console.WriteLine("Error: Enter a valid numeric Id");
                 }
                 newObj.ProdId = prodId;
@@ -116,7 +110,7 @@ namespace FinalProject
                 Console.WriteLine("Enter Product Name");
                 newObj.ProdName = Console.ReadLine();
                 Console.Clear();
-                
+
                 Console.WriteLine("Enter a unit of measure ex. set, each, unit, pack of 10");
                 newObj.ProdType = Console.ReadLine();
                 Console.Clear();
@@ -151,21 +145,21 @@ namespace FinalProject
 
                 while (char.ToUpper(user).Equals('C') == false && char.ToUpper(user).Equals('Q') == false)
                 {
-                   
-                    
 
-                        Console.WriteLine("your selection was not valid, Please provide a valid selection.");
 
-                        user = char.Parse(Console.ReadLine());
 
-                    
+                    Console.WriteLine("your selection was not valid, Please provide a valid selection.");
+
+                    user = char.Parse(Console.ReadLine());
+
+
                 }
-                
+
                 if (char.ToUpper(user).Equals('Q'))
                 {
                     quit = true;
                 }
-                
+
 
                 //ask if another needs to be created
             }
@@ -183,12 +177,13 @@ namespace FinalProject
             if (result > 0)
             {
                 result--;
+                Console.Clear();
                 Console.WriteLine("In order to access and modify a record, please provide a name");
                 string signature = Console.ReadLine();
                 Console.Clear();
                 while (end == false)
                 {
-                    Console.WriteLine(result);
+
                     Console.WriteLine("Select a attribute to modify. Note: the origination can not be modified\n\n" +
                     "[I] ID\n" +
                     "[N] Name\n" +
@@ -201,52 +196,55 @@ namespace FinalProject
                     switch (char.ToUpper(selection))
                     {
                         case 'I':
-                            Console.WriteLine("Enter a new ID");
+                            Console.WriteLine("Enter a new ID\n" +
+                                $"Current:{Object.ListId[result]}");
                             prodId = int.Parse(Console.ReadLine());
-                            Object.ListId.Insert(result, prodId);
+                            Console.Clear();
                             break;
                         case 'N':
-                            Console.WriteLine("Enter a new Name");
+                            Console.WriteLine("Enter a new Name\n" +
+                                $"Current:{Object.ListName[result]}");
                             name = Console.ReadLine();
-                            Object.ListName.Insert(result, name);
+                            Console.Clear();
                             break;
                         case 'T':
-                            Console.WriteLine("Enter a new Unit of Measure");
+                            Console.WriteLine("Enter a new Unit of Measure\n" +
+                                $"Current:{Object.ListType[result]}");
                             type = Console.ReadLine();
-                            Object.ListType.Insert(result, type);
+                            Console.Clear();
                             break;
                         case 'Q':
-                            Console.WriteLine("Enter a new Quantity");
+                            Console.WriteLine("Enter a new Quantity\n" +
+                                $"Current:{Object.ListQty[result]}");
                             quantity = int.Parse(Console.ReadLine());
-                            Object.ListQty.Insert(result, quantity);
+                            Console.Clear();
                             break;
                         case 'P':
-                            Console.WriteLine("Enter a new Price");
+                            Console.WriteLine("Enter a new Price\n" +
+                                $"Current:{Object.ListPrice[result]}");
                             price = Convert.ToDouble(Console.ReadLine());
-                            Object.ListPrice.Insert(result, price);
+                            Console.Clear();
                             break;
                         case 'E':
                             end = true;
                             break;
                     }
-                    Console.Clear();
-                    Console.WriteLine(result);
-                    Object.ListSignature.Insert(result, signature);
                 }
-            }
-            else if (result == -1)
-            {
-                Console.WriteLine("Exiting to Main Menu");
+                Console.Clear();
+                Object.Alter(result, prodId, name, type, quantity, price, signature);
+                View();
+
 
             }
+
             else
             {
                 Console.WriteLine("Redirected to the Main Menu");
             }
-            
 
-           //ask to pick an item based on the item number
-           //options to modify everything except signed
+
+            //ask to pick an item based on the item number
+            //options to modify everything except signed
         }
     }
 }
